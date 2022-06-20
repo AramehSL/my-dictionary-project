@@ -1,31 +1,27 @@
-.App {
-  text-align: center;
+body {
+  background: #102c49;
 }
 
-.App-logo {
-  max-width: 400px;
-  display: block;
+a {
+  color: #9670f4;
+}
+
+.App {
+  max-width: 960px;
   margin: 0 auto;
 }
 
 .App-header {
-  margin: 40px 0;
-}
-
-.App-footer {
   margin: 30px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-logo {
+  max-width: 200px;
+  display: block;
+  margin: 0 auto;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 25s linear;
-  }
+
+.App-footer {
+  text-align: center;
+  margin: 30px 0;
 }

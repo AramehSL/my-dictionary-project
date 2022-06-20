@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./logo-image.png";
 import Dictionary from "./Dictionary";
 import "./App.css";
 
