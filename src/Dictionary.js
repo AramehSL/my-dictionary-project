@@ -6,26 +6,26 @@ import "./Dictionary.css";
 
 export default function Dictionary(props) {
   let [keyword, setKeyword] = useState(props.defaultKeyword);
-  let [results, setResults] = useState(null);
+  let [results, sertResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
-  let [photos, setPhotos] = useState(null);
+  let [photos, setphotos] = useState(null);
 
-  function handleDictionResponse(response) {
-    setResults(response.data[0]);
+  function handleDictionaryResponse(response) {
+    sertResults(response.data[0]);
   }
 
   function handlePexelsResponse(response) {
-    setPhotos(response.data.photos);
+    setphotos(response.data.photos);
   }
 
   function search() {
-    // documentation: https://dictionaryapi.dev/e
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
-    axios.get(apiUrl).then(handleDictionResponse);
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+    console.log(apiUrl);
+    axios.get(apiUrl).then(handleDictionaryResponse);
 
     let pexelsApiKey =
-      "563492ad6f91700001000001fdd29f0808df42bd90c33f42e128fa89";
-    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+      "563492ad6f917000010000017df192bf43084e379b251de750bb24cf";
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=6`;
     let headers = { Authorization: `Bearer ${pexelsApiKey}` };
     axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
   }
@@ -56,9 +56,7 @@ export default function Dictionary(props) {
               defaultValue={props.defaultKeyword}
             />
           </form>
-          <div className="hint">
-            suggested words: sunset, wine, yoga, plant...
-          </div>
+          <div className="hint">Sugested words: sunset, wine, yoga</div>
         </section>
         <Results results={results} />
         <Photos photos={photos} />
@@ -66,6 +64,6 @@ export default function Dictionary(props) {
     );
   } else {
     load();
-    return "Loading";
+    return "Loading...";
   }
 }
